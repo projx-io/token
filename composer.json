@@ -1,12 +1,12 @@
 {
-  "name": "projx-io/encoder",
+  "name": "projx-io/token",
   "authors": [
     {
       "name": "Terrence Howard",
       "email": "chemisus@gmail.com"
     }
   ],
-  "require": {
+  "require-dev": {
     "phpunit/phpunit": "*",
     "mockery/mockery": "*"
   },
