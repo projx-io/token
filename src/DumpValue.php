@@ -9,7 +9,7 @@ class DumpValue implements Encoder
      * @return string
      * @throws EncodeException
      */
-    public function encode($value)
+    public function encodeToken($value)
     {
         var_dump($value);
         return $value;
@@ -20,7 +20,7 @@ class DumpValue implements Encoder
      * @return mixed
      * @throws DecodeException
      */
-    public function decode($value)
+    public function decodeToken($value)
     {
         var_dump($value);
         return $value;

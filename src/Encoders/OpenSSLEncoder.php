@@ -51,7 +51,7 @@ abstract class OpenSSLEncoder implements Encoder
     /**
      * @inheritdoc
      */
-    public function encode($value)
+    public function encodeToken($value)
     {
         $method = $this->method();
         $key = $this->key();
@@ -65,7 +65,7 @@ abstract class OpenSSLEncoder implements Encoder
     /**
      * @inheritdoc
      */
-    public function decode($token)
+    public function decodeToken($token)
     {
         $method = $this->method();
         $key = $this->key();

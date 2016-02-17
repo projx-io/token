@@ -9,7 +9,7 @@ class GZipInflateEncoder implements Encoder
     /**
      * @inheritDoc
      */
-    public function encode($value)
+    public function encodeToken($value)
     {
         return gzdeflate($value, 1);
     }
@@ -17,7 +17,7 @@ class GZipInflateEncoder implements Encoder
     /**
      * @inheritDoc
      */
-    public function decode($value)
+    public function decodeToken($value)
     {
         return gzinflate($value);
     }

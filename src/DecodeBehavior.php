@@ -9,5 +9,5 @@ interface DecodeBehavior
      * @return mixed
      * @throws DecodeException
      */
-    public function decode($value);
+    public function decodeToken($value);
 }

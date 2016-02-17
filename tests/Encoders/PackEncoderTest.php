@@ -21,8 +21,8 @@ class PackEncoderTest extends PHPUnit_Framework_TestCase
                 ->uint16BE('a')
                 ->uint16LE('b')
                 ->build();
-        $encoded = $encoder->encode(array_values($original));
-        $decoded = $encoder->decode($encoded);
+        $encoded = $encoder->encodeToken(array_values($original));
+        $decoded = $encoder->decodeToken($encoded);
         $this->assertNotEquals($original, $encoded);
         $this->assertEquals($original, $decoded);
     }

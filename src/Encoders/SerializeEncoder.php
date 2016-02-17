@@ -9,7 +9,7 @@ class SerializeEncoder implements Encoder
     /**
      * @inheritDoc
      */
-    public function encode($value)
+    public function encodeToken($value)
     {
         return serialize($value);
     }
@@ -17,7 +17,7 @@ class SerializeEncoder implements Encoder
     /**
      * @inheritDoc
      */
-    public function decode($value)
+    public function decodeToken($value)
     {
         return unserialize($value);
     }

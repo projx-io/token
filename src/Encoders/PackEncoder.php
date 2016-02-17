@@ -22,7 +22,7 @@ class PackEncoder implements Encoder
     /**
      * @inheritDoc
      */
-    public function encode($value)
+    public function encodeToken($value)
     {
         $args = array_merge([implode('', $this->structure)], $value);
         return call_user_func_array('pack', $args);
@@ -31,7 +31,7 @@ class PackEncoder implements Encoder
     /**
      * @inheritDoc
      */
-    public function decode($value)
+    public function decodeToken($value)
     {
         $unpack = implode('/', array_map(function ($type, $key) {
             return $type . $key;

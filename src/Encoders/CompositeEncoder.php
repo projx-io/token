@@ -22,10 +22,10 @@ class CompositeEncoder implements Encoder
     /**
      * @inheritDoc
      */
-    public function encode($value)
+    public function encodeToken($value)
     {
         foreach ($this->encoders as $encoder) {
-            $value = $encoder->encode($value);
+            $value = $encoder->encodeToken($value);
         }
         return $value;
     }
@@ -33,7 +33,7 @@ class CompositeEncoder implements Encoder
     /**
      * @inheritDoc
      */
-    public function decode($value)
+    public function decodeToken($value)
     {
         foreach (array_reverse($this->encoders) as $encoder) {
             $value = $encoder->decode($value);

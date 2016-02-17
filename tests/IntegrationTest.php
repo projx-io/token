@@ -42,8 +42,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             new Base64Encoder(),
         ]);
 
-        $token = $encoder->encode($original);
-        $decoded = $encoder->decode($token);
+        $token = $encoder->encodeToken($original);
+        $decoded = $encoder->decodeToken($token);
 
         $this->assertNotEquals($original, $token);
         $this->assertEquals($original, $decoded);
@@ -100,8 +100,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             new Base64Encoder(),
         ]);
 
-        $token = $encoder->encode($original);
-        $decoded = $encoder->decode($token);
+        $token = $encoder->encodeToken($original);
+        $decoded = $encoder->decodeToken($token);
 
         $this->assertNotEquals($original, $token);
         $this->assertEquals($original, $decoded);

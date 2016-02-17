@@ -20,15 +20,15 @@ class OnDecode implements Encoder
     /**
      * @inheritDoc
      */
-    public function decode($value)
+    public function decodeToken($value)
     {
-        return $this->behavior->decode($value);
+        return $this->behavior->decodeToken($value);
     }
 
     /**
      * @inheritDoc
      */
-    public function encode($value)
+    public function encodeToken($value)
     {
         return $value;
     }

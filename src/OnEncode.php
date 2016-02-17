@@ -20,7 +20,7 @@ class OnEncode implements Encoder
     /**
      * @inheritDoc
      */
-    public function decode($value)
+    public function decodeToken($value)
     {
         return $value;
     }
@@ -28,8 +28,8 @@ class OnEncode implements Encoder
     /**
      * @inheritDoc
      */
-    public function encode($value)
+    public function encodeToken($value)
     {
-        return $this->behavior->encode($value);
+        return $this->behavior->encodeToken($value);
     }
 }

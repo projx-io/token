@@ -9,7 +9,7 @@ class GZipCompressEncoder implements Encoder
     /**
      * @inheritDoc
      */
-    public function encode($value)
+    public function encodeToken($value)
     {
         return gzcompress($value, 9);
     }
@@ -17,7 +17,7 @@ class GZipCompressEncoder implements Encoder
     /**
      * @inheritDoc
      */
-    public function decode($value)
+    public function decodeToken($value)
     {
         return gzuncompress($value);
     }

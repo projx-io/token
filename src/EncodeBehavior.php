@@ -9,5 +9,5 @@ interface EncodeBehavior
      * @return string
      * @throws EncodeException
      */
-    public function encode($value);
+    public function encodeToken($value);
 }

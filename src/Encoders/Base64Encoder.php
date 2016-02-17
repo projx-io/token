@@ -9,7 +9,7 @@ class Base64Encoder implements Encoder
     /**
      * @inheritDoc
      */
-    public function encode($value)
+    public function encodeToken($value)
     {
         return base64_encode($value);
     }
@@ -17,7 +17,7 @@ class Base64Encoder implements Encoder
     /**
      * @inheritDoc
      */
-    public function decode($value)
+    public function decodeToken($value)
     {
         return base64_decode($value);
     }

@@ -9,7 +9,7 @@ class JsonEncoder implements Encoder
     /**
      * @inheritDoc
      */
-    public function encode($value)
+    public function encodeToken($value)
     {
         return json_encode($value);
     }
@@ -17,7 +17,7 @@ class JsonEncoder implements Encoder
     /**
      * @inheritDoc
      */
-    public function decode($value)
+    public function decodeToken($value)
     {
         return json_decode($value);
     }
