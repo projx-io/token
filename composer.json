@@ -1,0 +1,18 @@
+{
+  "name": "projx-io/encoder",
+  "authors": [
+    {
+      "name": "Terrence Howard",
+      "email": "chemisus@gmail.com"
+    }
+  ],
+  "require": {
+    "phpunit/phpunit": "*",
+    "mockery/mockery": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "ProjxIO\\Token\\": "src"
+    }
+  }
+}
