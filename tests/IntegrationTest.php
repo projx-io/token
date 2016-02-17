@@ -56,7 +56,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
          * @see http://php.net/manual/en/function.pack.php#refsect1-function.pack-changelog
          */
         if (version_compare(PHP_VERSION, '5.6.3') < 0) {
-            return;
+            $this->markTestSkipped('64bit options available only in version >= 5.6.3');
         }
 
         $key = openssl_random_pseudo_bytes(32);
