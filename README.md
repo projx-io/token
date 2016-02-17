@@ -1,4 +1,8 @@
 [![Build Status](https://travis-ci.org/projx-io/token.svg)](https://travis-ci.org/projx-io/token)
 
-= Tokenizer
+Tokenizer
+
+Install
+
+`composer install projx-io/token`
 
