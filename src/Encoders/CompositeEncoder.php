@@ -36,7 +36,7 @@ class CompositeEncoder implements Encoder
     public function decodeToken($value)
     {
         foreach (array_reverse($this->encoders) as $encoder) {
-            $value = $encoder->decode($value);
+            $value = $encoder->decodeToken($value);
         }
         return $value;
     }
