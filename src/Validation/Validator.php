@@ -3,10 +3,10 @@
 namespace ProjxIO\Token\Validation;
 
 use ProjxIO\Token\DecodeException;
-use ProjxIO\Token\EncodeBehavior;
 use ProjxIO\Token\EncodeException;
+use ProjxIO\Token\Encoder;
 
-class Validator implements EncodeBehavior
+class Validator implements Encoder
 {
     /**
      * @var Validation[]

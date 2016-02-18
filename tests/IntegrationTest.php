@@ -85,30 +85,30 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             chr($i++) => rand(0, $max64),
         ];
 
-        $encoder = new CompositeEncoder([
-            new OnEncode(new Validator([new IsArrayValidation()])),
-            (new PackEncoderBuilder())
-                ->uint16BE(chr($i = ord('a')))
-                ->uint32BE(chr($i++))
-                ->uint64BE(chr($i++))
-                ->uint16BE(chr($i++))
-                ->uint32BE(chr($i++))
-                ->uint64BE(chr($i++))
-                ->uint16BE(chr($i++))
-                ->uint32BE(chr($i++))
-                ->uint64BE(chr($i++))
-                ->uint16BE(chr($i++))
-                ->uint32BE(chr($i++))
-                ->uint64BE(chr($i++))
-                ->build(),
-            new OnEncode(new Validator([new IsStringValidation()])),
-            new GZipInflateEncoder(),
-            new OnEncode(new Validator([new IsStringValidation()])),
-            new RandomVectorOpenSSLEncoder($key),
-            new OnEncode(new Validator([new IsStringValidation()])),
-            new Base64Encoder(),
-            new OnEncode(new Validator([new IsStringValidation()])),
-        ]);
+        $encoderBuilder = (new EncoderBuilder())
+            ->validateEncode(new IsArrayValidation())
+            ->pack()
+            ->validateEncode(new IsStringValidation())
+            ->encryptedRandomVector($key)
+            ->validateEncode(new IsStringValidation())
+            ->base64()
+            ->validateEncode(new IsStringValidation());
+
+        $encoderBuilder->packer()
+            ->uint16BE(chr($i = ord('a')))
+            ->uint32BE(chr($i++))
+            ->uint64BE(chr($i++))
+            ->uint16BE(chr($i++))
+            ->uint32BE(chr($i++))
+            ->uint64BE(chr($i++))
+            ->uint16BE(chr($i++))
+            ->uint32BE(chr($i++))
+            ->uint64BE(chr($i++))
+            ->uint16BE(chr($i++))
+            ->uint32BE(chr($i++))
+            ->uint64BE(chr($i++));
+
+        $encoder = $encoderBuilder->build();
 
         $token = $encoder->encodeToken($original);
         $decoded = $encoder->decodeToken($token);
