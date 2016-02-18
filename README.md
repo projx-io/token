@@ -11,7 +11,7 @@ http://github.com:projx-io/token.git
 ## Usage
 
 ```php
-  // key used to encrypt the token
+  // The key used to encrypt the token. This ideally would not be random, and would be saved somewhere.
   $key = openssl_random_pseudo_bytes(32);           
 
   $encoderBuilder = (new EncoderBuilder())
