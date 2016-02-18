@@ -15,12 +15,12 @@ http://github.com:projx-io/token.git
   $key = openssl_random_pseudo_bytes(32);           
 
   $encoderBuilder = (new EncoderBuilder())
-      ->validateEncode(new IsArrayValidation())
-      ->pack()                                      
-      ->compress()                                  
-      ->encryptedRandomVector($key)                 
-      ->base64()
-      ->validateDecode(new IsStringValidation());
+      ->validateEncode(new IsArrayValidation())     // 1.
+      ->pack()                                      // 2.     
+      ->compress()                                  // 3.
+      ->encryptedRandomVector($key)                 // 4.
+      ->base64()                                    // 5.
+      ->validateDecode(new IsStringValidation());   // 6.
 
   // The chain performs the following:
   // 
