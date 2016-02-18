@@ -2,7 +2,7 @@
 
 # Tokenizer
 
-http://github.com:projx-io/token.git
+http://github.com/projx-io/token.git
 
 ## Install
 
