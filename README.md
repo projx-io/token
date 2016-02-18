@@ -4,5 +4,4 @@ Tokenizer
 
 Install
 
-`composer install projx-io/token`
-
+`composer install projx/token`
