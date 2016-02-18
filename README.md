@@ -41,9 +41,9 @@ http://github.com:projx-io/token.git
   // The following builds the packer, which is an encoder that uses pack() to convert an array into a binary string.
   // With the following
   $encoderBuilder->packer()
-      ->uint32BE('created')
-      ->uint32BE('app_id')
-      ->uint32BE('user_id');
+      ->uint32BE('created')   // 1. encoding: expect 32bit int; decoding: name the int 'created'
+      ->uint32BE('app_id')    // 2. encoding: expect 32bit int; decoding: name the int 'app_id'
+      ->uint32BE('user_id');  // 3. encoding: expect 32bit int; decoding: name the int 'user_id'
 
   $encoder = $encoderBuilder->build();
   
