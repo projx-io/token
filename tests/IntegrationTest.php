@@ -6,6 +6,9 @@ use PHPUnit_Framework_TestCase;
 use ProjxIO\Token\GZip\GZipInflateEncoder;
 use ProjxIO\Token\OpenSSL\RandomVectorOpenSSLEncoder;
 use ProjxIO\Token\Pack\PackEncoderBuilder;
+use ProjxIO\Token\Validation\Filters\IsArrayValidation;
+use ProjxIO\Token\Validation\Filters\IsStringValidation;
+use ProjxIO\Token\Validation\Validator;
 
 class IntegrationTest extends PHPUnit_Framework_TestCase
 {
@@ -83,6 +86,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
         ];
 
         $encoder = new CompositeEncoder([
+            new OnEncode(new Validator([new IsArrayValidation()])),
             (new PackEncoderBuilder())
                 ->uint16BE(chr($i = ord('a')))
                 ->uint32BE(chr($i++))
@@ -97,9 +101,13 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 ->uint32BE(chr($i++))
                 ->uint64BE(chr($i++))
                 ->build(),
+            new OnEncode(new Validator([new IsStringValidation()])),
             new GZipInflateEncoder(),
+            new OnEncode(new Validator([new IsStringValidation()])),
             new RandomVectorOpenSSLEncoder($key),
+            new OnEncode(new Validator([new IsStringValidation()])),
             new Base64Encoder(),
+            new OnEncode(new Validator([new IsStringValidation()])),
         ]);
 
         $token = $encoder->encodeToken($original);

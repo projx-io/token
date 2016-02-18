@@ -4,6 +4,6 @@ namespace ProjxIO\Token;
 
 use Exception;
 
-class DecodeException extends EncoderException
+class EncoderException extends Exception
 {
 }
