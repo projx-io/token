@@ -3,12 +3,8 @@
 namespace ProjxIO\Token;
 
 use PHPUnit_Framework_TestCase;
-use ProjxIO\Token\GZip\GZipInflateEncoder;
-use ProjxIO\Token\OpenSSL\RandomVectorOpenSSLEncoder;
-use ProjxIO\Token\Pack\PackEncoderBuilder;
 use ProjxIO\Token\Validation\Filters\IsArrayValidation;
 use ProjxIO\Token\Validation\Filters\IsStringValidation;
-use ProjxIO\Token\Validation\Validator;
 
 class IntegrationTest extends PHPUnit_Framework_TestCase
 {
@@ -31,21 +27,24 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             chr($i++) => rand(0, $max32),
         ];
 
-        $encoder = new CompositeEncoder([
-            (new PackEncoderBuilder())
-                ->uint16BE(chr($i = ord('a')))
-                ->uint32BE(chr($i++))
-                ->uint16BE(chr($i++))
-                ->uint32BE(chr($i++))
-                ->uint16BE(chr($i++))
-                ->uint32BE(chr($i++))
-                ->uint16BE(chr($i++))
-                ->uint32BE(chr($i++))
-                ->build(),
-            new GZipInflateEncoder(),
-            new RandomVectorOpenSSLEncoder($key),
-            new Base64Encoder(),
-        ]);
+        $encoderBuilder = (new EncoderBuilder())
+            ->validate(new IsArrayValidation())
+            ->pack()
+            ->encryptedRandomVector($key)
+            ->base64()
+            ->validate(new IsStringValidation());
+
+        $encoderBuilder->packer()
+            ->uint16BE(chr($i = ord('a')))
+            ->uint32BE(chr($i++))
+            ->uint16BE(chr($i++))
+            ->uint32BE(chr($i++))
+            ->uint16BE(chr($i++))
+            ->uint32BE(chr($i++))
+            ->uint16BE(chr($i++))
+            ->uint32BE(chr($i++));
+
+        $encoder = $encoderBuilder->build();
 
         $token = $encoder->encodeToken($original);
         $decoded = $encoder->decodeToken($token);
@@ -86,13 +85,14 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
         ];
 
         $encoderBuilder = (new EncoderBuilder())
+            ->validate(new IsArrayValidation())
             ->validateEncode(new IsArrayValidation())
+            ->validateDecode(new IsArrayValidation())
             ->pack()
-            ->validateEncode(new IsStringValidation())
+            ->compress()
             ->encryptedRandomVector($key)
-            ->validateEncode(new IsStringValidation())
             ->base64()
-            ->validateEncode(new IsStringValidation());
+            ->validate(new IsStringValidation());
 
         $encoderBuilder->packer()
             ->uint16BE(chr($i = ord('a')))

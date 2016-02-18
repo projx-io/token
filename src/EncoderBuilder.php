@@ -2,6 +2,7 @@
 
 namespace ProjxIO\Token;
 
+use ProjxIO\Token\GZip\GZipInflateEncoder;
 use ProjxIO\Token\OpenSSL\FixedVectorOpenSSLEncoder;
 use ProjxIO\Token\OpenSSL\RandomVectorOpenSSLEncoder;
 use ProjxIO\Token\Pack\PackEncoder;
@@ -85,6 +86,22 @@ class EncoderBuilder
     }
 
     /**
+     * @return $this
+     */
+    public function serialize()
+    {
+        return $this->add(new SerializeEncoder());
+    }
+
+    /**
+     * @return $this
+     */
+    public function compress()
+    {
+        return $this->add(new GZipInflateEncoder());
+    }
+
+    /**
      * @return EncoderBuilder
      */
     public function pack()
@@ -116,6 +133,15 @@ class EncoderBuilder
     public function onDecode(DecodeBehavior $decode)
     {
         return $this->add(new OnDecode($decode));
+    }
+
+    /**
+     * @param Validation $validation
+     * @return $this
+     */
+    public function validate(Validation $validation)
+    {
+        return $this->add(new Validator($validation));
     }
 
     /**
