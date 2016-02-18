@@ -3,7 +3,7 @@
 namespace ProjxIO\Token\Encoders;
 
 use PHPUnit_Framework_TestCase;
-use ProjxIO\Token\PackEncoderBuilder;
+use ProjxIO\Token\Encoders\Pack\PackEncoderBuilder;
 
 class PackEncoderTest extends PHPUnit_Framework_TestCase
 {

@@ -1,8 +1,6 @@
 <?php
 
-namespace ProjxIO\Token;
-
-use ProjxIO\Token\Encoders\PackEncoder;
+namespace ProjxIO\Token\Encoders\Pack;
 
 class PackEncoderBuilder
 {
