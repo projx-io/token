@@ -1,6 +1,6 @@
 <?php
 
-namespace ProjxIO\Token\Encoders;
+namespace ProjxIO\Token\Encoders\GZip;
 
 use ProjxIO\Token\Encoder;
 

@@ -3,6 +3,7 @@
 namespace ProjxIO\Token\Encoders;
 
 use PHPUnit_Framework_TestCase;
+use ProjxIO\Token\Encoders\GZip\GZipInflateEncoder;
 
 class GZipInflateEncoderTest extends PHPUnit_Framework_TestCase
 {

@@ -1,17 +1,17 @@
 <?php
 
-namespace ProjxIO\Token\Encoders;
+namespace ProjxIO\Token\Encoders\GZip;
 
 use ProjxIO\Token\Encoder;
 
-class GZipCompressEncoder implements Encoder
+class GZipEncodeEncoder implements Encoder
 {
     /**
      * @inheritDoc
      */
     public function encodeToken($value)
     {
-        return gzcompress($value, 9);
+        return gzencode($value, 9);
     }
 
     /**
@@ -19,6 +19,6 @@ class GZipCompressEncoder implements Encoder
      */
     public function decodeToken($value)
     {
-        return gzuncompress($value);
+        return gzdecode($value);
     }
 }
