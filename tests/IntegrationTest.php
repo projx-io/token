@@ -10,7 +10,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 {
     public function testPHP_5_5_or_lower()
     {
-        $key = openssl_random_pseudo_bytes(32);
+        $key = openssl_random_pseudo_bytes(16);
 
         $max16 = 65535;
         $max32 = 4294967295;
@@ -30,7 +30,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
         $encoderBuilder = (new EncoderBuilder())
             ->validate(new IsArrayValidation())
             ->pack()
-            ->encryptedRandomVector($key)
+            ->encrypt($key)
             ->base64()
             ->validate(new IsStringValidation());
 
@@ -63,7 +63,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             $this->markTestSkipped('64bit options available only in version >= 5.6.3');
         }
 
-        $key = openssl_random_pseudo_bytes(32);
+        $key = openssl_random_pseudo_bytes(16);
 
         $max16 = 65535;
         $max32 = 4294967295;
@@ -90,7 +90,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             ->validateDecode(new IsArrayValidation())
             ->pack()
             ->compress()
-            ->encryptedRandomVector($key)
+            ->encrypt($key)
             ->base64()
             ->validate(new IsStringValidation());
 

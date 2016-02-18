@@ -14,5 +14,8 @@
     "psr-4": {
       "ProjxIO\\Token\\": "src"
     }
+  },
+  "require": {
+    "defuse/php-encryption": "^1.2"
   }
 }

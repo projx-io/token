@@ -2,6 +2,7 @@
 
 namespace ProjxIO\Token;
 
+use ProjxIO\Token\DefuseCrypto\CryptoEncoder;
 use ProjxIO\Token\GZip\GZipInflateEncoder;
 use ProjxIO\Token\OpenSSL\FixedVectorOpenSSLEncoder;
 use ProjxIO\Token\OpenSSL\RandomVectorOpenSSLEncoder;
@@ -54,19 +55,12 @@ class EncoderBuilder
     }
 
     /**
+     * @param string $key
      * @return $this
      */
-    public function encryptedRandomVector($key, $method = 'aes-256-cbc')
+    public function encrypt($key)
     {
-        return $this->put('openssl', new RandomVectorOpenSSLEncoder($key, $method));
-    }
-
-    /**
-     * @return $this
-     */
-    public function encryptedFixedVector($key, $vector, $method = 'aes-256-cbc')
-    {
-        return $this->put('openssl', new FixedVectorOpenSSLEncoder($key, $vector, $method));
+        return $this->put('encrypt', new CryptoEncoder($key));
     }
 
     /**
