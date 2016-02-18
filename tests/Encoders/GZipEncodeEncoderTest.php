@@ -1,9 +1,9 @@
 <?php
 
-namespace ProjxIO\Token\Encoders;
+namespace ProjxIO\Token;
 
 use PHPUnit_Framework_TestCase;
-use ProjxIO\Token\Encoders\GZip\GZipEncodeEncoder;
+use ProjxIO\Token\GZip\GZipEncodeEncoder;
 
 class GZipCompressEncoderTest extends PHPUnit_Framework_TestCase
 {

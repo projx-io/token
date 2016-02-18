@@ -1,6 +1,6 @@
 <?php
 
-namespace ProjxIO\Token\Encoders\OpenSSL;
+namespace ProjxIO\Token\OpenSSL;
 
 class FixedVectorOpenSSLEncoder extends OpenSSLEncoder
 {

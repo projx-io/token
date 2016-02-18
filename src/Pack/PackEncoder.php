@@ -1,6 +1,6 @@
 <?php
 
-namespace ProjxIO\Token\Encoders\Pack;
+namespace ProjxIO\Token\Pack;
 
 use ProjxIO\Token\Encoder;
 

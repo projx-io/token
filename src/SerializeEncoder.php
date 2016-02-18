@@ -1,17 +1,17 @@
 <?php
 
-namespace ProjxIO\Token\Encoders;
+namespace ProjxIO\Token;
 
 use ProjxIO\Token\Encoder;
 
-class JsonEncoder implements Encoder
+class SerializeEncoder implements Encoder
 {
     /**
      * @inheritDoc
      */
     public function encodeToken($value)
     {
-        return json_encode($value);
+        return serialize($value);
     }
 
     /**
@@ -19,6 +19,6 @@ class JsonEncoder implements Encoder
      */
     public function decodeToken($value)
     {
-        return json_decode($value);
+        return unserialize($value);
     }
 }

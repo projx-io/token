@@ -1,9 +1,9 @@
 <?php
 
-namespace ProjxIO\Token\Encoders;
+namespace ProjxIO\Token;
 
 use PHPUnit_Framework_TestCase;
-use ProjxIO\Token\Encoders\OpenSSL\RandomVectorOpenSSLEncoder;
+use ProjxIO\Token\OpenSSL\RandomVectorOpenSSLEncoder;
 
 class RandomVectorOpenSSLEncoderTest extends PHPUnit_Framework_TestCase
 {

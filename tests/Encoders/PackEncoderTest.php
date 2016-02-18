@@ -1,9 +1,9 @@
 <?php
 
-namespace ProjxIO\Token\Encoders;
+namespace ProjxIO\Token;
 
 use PHPUnit_Framework_TestCase;
-use ProjxIO\Token\Encoders\Pack\PackEncoderBuilder;
+use ProjxIO\Token\Pack\PackEncoderBuilder;
 
 class PackEncoderTest extends PHPUnit_Framework_TestCase
 {

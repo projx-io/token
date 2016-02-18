@@ -1,11 +1,11 @@
 <?php
 
-namespace ProjxIO\Token\Encoders;
+namespace ProjxIO\Token;
 
 use PHPUnit_Framework_TestCase;
-use ProjxIO\Token\Encoders\GZip\GZipInflateEncoder;
-use ProjxIO\Token\Encoders\OpenSSL\RandomVectorOpenSSLEncoder;
-use ProjxIO\Token\Encoders\Pack\PackEncoderBuilder;
+use ProjxIO\Token\GZip\GZipInflateEncoder;
+use ProjxIO\Token\OpenSSL\RandomVectorOpenSSLEncoder;
+use ProjxIO\Token\Pack\PackEncoderBuilder;
 
 class IntegrationTest extends PHPUnit_Framework_TestCase
 {

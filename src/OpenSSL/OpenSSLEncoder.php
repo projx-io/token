@@ -1,6 +1,6 @@
 <?php
 
-namespace ProjxIO\Token\Encoders\OpenSSL;
+namespace ProjxIO\Token\OpenSSL;
 
 use ProjxIO\Token\Encoder;
 

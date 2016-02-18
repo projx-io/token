@@ -1,9 +1,9 @@
 <?php
 
-namespace ProjxIO\Token\Encoders;
+namespace ProjxIO\Token;
 
 use PHPUnit_Framework_TestCase;
-use ProjxIO\Token\Encoders\OpenSSL\FixedVectorOpenSSLEncoder;
+use ProjxIO\Token\OpenSSL\FixedVectorOpenSSLEncoder;
 
 class FixedVectorOpenSSLEncoderTest extends PHPUnit_Framework_TestCase
 {
