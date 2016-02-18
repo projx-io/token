@@ -4,6 +4,7 @@ namespace ProjxIO\Token\Encoders;
 
 use PHPUnit_Framework_TestCase;
 use ProjxIO\Token\Encoders\GZip\GZipInflateEncoder;
+use ProjxIO\Token\Encoders\OpenSSL\RandomVectorOpenSSLEncoder;
 
 class CompositeEncoderTest extends PHPUnit_Framework_TestCase
 {

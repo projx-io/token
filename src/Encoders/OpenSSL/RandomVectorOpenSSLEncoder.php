@@ -1,12 +1,11 @@
 <?php
 
-namespace ProjxIO\Token\Encoders;
+namespace ProjxIO\Token\Encoders\OpenSSL;
 
 class RandomVectorOpenSSLEncoder extends OpenSSLEncoder
 {
     /**
      * @param string $key
-     * @param string $vector
      * @param string $method
      * @param int $flags
      */

@@ -3,6 +3,7 @@
 namespace ProjxIO\Token\Encoders;
 
 use PHPUnit_Framework_TestCase;
+use ProjxIO\Token\Encoders\OpenSSL\FixedVectorOpenSSLEncoder;
 
 class FixedVectorOpenSSLEncoderTest extends PHPUnit_Framework_TestCase
 {
