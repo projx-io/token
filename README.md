@@ -18,7 +18,7 @@ http://github.com/projx-io/token.git
       ->validateEncode(new IsArrayValidation())     // 1. add encode validation encoder
       ->pack()                                      // 2. add pack encoder
       ->compress()                                  // 3. add gzip encoder
-      ->encrypt($key)                 // 4. add encryption encoder
+      ->encrypt($key)                               // 4. add encryption encoder
       ->base64()                                    // 5. add base64 encoder
       ->validateDecode(new IsStringValidation());   // 6. add decode validation encoder
 
