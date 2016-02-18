@@ -6,7 +6,7 @@ http://github.com:projx-io/token.git
 
 ## Install
 
-**composer**: `composer install projx/token`
+**composer**: `composer require projx/token`
 
 ## Usage
 
