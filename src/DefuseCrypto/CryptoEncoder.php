@@ -26,7 +26,7 @@ class CryptoEncoder implements Encoder
      */
     public function encodeToken($value)
     {
-        return Crypto::encryptWithPassword($value, $this->key);
+        return Crypto::encryptWithPassword($value, $this->key, true);
     }
 
     /**
@@ -34,6 +34,6 @@ class CryptoEncoder implements Encoder
      */
     public function decodeToken($value)
     {
-        return Crypto::decryptWithPassword($value, $this->key);
+        return Crypto::decryptWithPassword($value, $this->key, true);
     }
 }
