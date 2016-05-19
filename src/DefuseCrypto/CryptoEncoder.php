@@ -2,7 +2,7 @@
 
 namespace ProjxIO\Token\DefuseCrypto;
 
-use Crypto;
+use Defuse\Crypto\Crypto;
 use ProjxIO\Token\Encoder;
 
 class CryptoEncoder implements Encoder
