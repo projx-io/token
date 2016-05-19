@@ -16,6 +16,6 @@
     }
   },
   "require": {
-    "defuse/php-encryption": "^1.2"
+    "defuse/php-encryption": "^2.0"
   }
 }
