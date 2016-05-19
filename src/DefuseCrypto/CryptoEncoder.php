@@ -2,7 +2,7 @@
 
 namespace ProjxIO\Token\DefuseCrypto;
 
-use Crypto;
+use Defuse\Crypto\Crypto;
 use ProjxIO\Token\Encoder;
 
 class CryptoEncoder implements Encoder
@@ -26,7 +26,7 @@ class CryptoEncoder implements Encoder
      */
     public function encodeToken($value)
     {
-        return Crypto::Encrypt($value, $this->key);
+        return Crypto::encryptWithPassword($value, $this->key);
     }
 
     /**
@@ -34,6 +34,6 @@ class CryptoEncoder implements Encoder
      */
     public function decodeToken($value)
     {
-        return Crypto::Decrypt($value, $this->key);
+        return Crypto::decryptWithPassword($value, $this->key);
     }
 }
